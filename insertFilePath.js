@@ -1,13 +1,14 @@
-const fs = require ('fs');
-const path = require ('path');
+const fs = require('fs');
+const path = require('path');
 const filePath = process.argv[2];
-let content = fs.readFileSync (filePath, 'utf8');
-const extension = path.extname (filePath);
+let content = fs.readFileSync(filePath, 'utf8');
+const extension = path.extname(filePath);
 let commentSyntax = '';
-function getCommentSyntax (extension, content) {
+
+function getCommentSyntax(extension, content) {
   switch (extension) {
     case '.php':
-      if (content.trim ().startsWith ('<?php')) {
+      if (content.trim().startsWith('<?php')) {
         return '<!--';
       } else {
         return '//';
@@ -38,9 +39,11 @@ function getCommentSyntax (extension, content) {
       return '//';
   }
 }
-commentSyntax = getCommentSyntax (extension, content);
-const relativeFilePath = path.relative (process.cwd (), filePath);
-const comment = `${commentSyntax} ${relativeFilePath}\n`;
-if (!content.startsWith (comment)) {
-  fs.writeFileSync (filePath, comment + content, 'utf8');
+
+commentSyntax = getCommentSyntax(extension, content);
+const relativeFilePath = path.relative(process.cwd(), filePath);
+const comment = extension === '.php' ? `${commentSyntax} ${relativeFilePath} -->\n` : `${commentSyntax} ${relativeFilePath}\n`;
+
+if (!content.startsWith(comment)) {
+  fs.writeFileSync(filePath, comment + content, 'utf8');
 }
