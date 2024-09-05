@@ -51,7 +51,7 @@ The File Path Inserter supports the following languages and tools:
     * Save the `insertFilePath.js` script to a directory of your choice. For example:
     * Windows: `C:/scripts/insertFilePath.js`
     * macOS/Linux: `/usr/local/bin/insertFilePath.js`
-3.  **Configure Keybinding in VSCodet**
+3.  **Configure Keybinding in VSCode**
     * Open VSCode.
     * Go to `File > Preferences > Keyboard Shortcuts`.
     * Click on the `{}` icon at the top right to open `keybindings.json`.
