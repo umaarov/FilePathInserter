@@ -45,7 +45,8 @@ The File Path Inserter supports the following languages and tools:
 
    ```sh
    git clone https://github.com/umaarov/file-path-inserter.git
-   cd file-path-inserter```
+   cd file-path-inserter
+   ```
 2.  **Place the Script**
     * Save the `insertFilePath.js` script to a directory of your choice. For example:
     * Windows: `C:/scripts/insertFilePath.js`
